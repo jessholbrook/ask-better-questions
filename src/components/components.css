@@ -1,0 +1,156 @@
+/* Chat Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 800px;
+    /* Slightly narrower for reading measure */
+    margin: 0 auto;
+    position: relative;
+}
+
+.messages-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    /* Increased spacing for editorial feel */
+    padding-bottom: 120px;
+}
+
+/* Message Bubble - Redesigned for "Humanist" feel */
+.message-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.message-row.user {
+    justify-content: flex-end;
+}
+
+.message-row.assistant {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 85%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.05rem;
+    /* Slightly larger text */
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: transparent;
+    /* Remove heavy backgrounds */
+}
+
+.message-bubble.user {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-sm);
+    color: var(--text-primary);
+}
+
+.message-bubble.assistant {
+    /* No background for assistant, just pure text for an editorial vibe */
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.message-timestamp {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+    display: block;
+}
+
+/* Refinement Card Style */
+.refinement-card {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: #ffffff;
+    /* Crisp white card on cream bg */
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    /* Very subtle shadow */
+}
+
+/* Input Area */
+.input-position-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-xl);
+    background: linear-gradient(to top, var(--bg-primary) 80%, transparent);
+}
+
+.input-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    gap: var(--spacing-md);
+    background-color: #ffffff;
+    border: 1px solid var(--bg-tertiary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-full);
+    /* Pill shape */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
+}
+
+.input-container:focus-within {
+    border-color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(140, 115, 85, 0.1);
+}
+
+.chat-input {
+    flex: 1;
+    background: transparent;
+    color: var(--text-primary);
+    padding: var(--spacing-sm) var(--spacing-sm);
+    font-size: 1rem;
+    min-height: 48px;
+    /* Height of the pill */
+    line-height: 1.5;
+    resize: none;
+    max-height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.chat-input::placeholder {
+    color: var(--text-muted);
+    font-family: var(--font-serif);
+    /* Serif placeholder for vibes */
+    font-style: italic;
+}
+
+.send-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    background-color: var(--accent-primary);
+    color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.send-button:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.send-button:disabled {
+    background-color: var(--bg-tertiary);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}

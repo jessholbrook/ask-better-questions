@@ -1,0 +1,119 @@
+:root {
+  /* Warm Humanist Theme (Microsoft AI inspired) */
+
+  /* Backgrounds */
+  --bg-primary: #fbf8f1;
+  /* Warm Cream */
+  --bg-secondary: #f4efe6;
+  /* Slightly darker warm beige */
+  --bg-tertiary: #e8e2d2;
+  /* Darker beige for borders/accents */
+
+  /* Text */
+  --text-primary: #1a1a1a;
+  /* Soft Charcoal */
+  --text-secondary: #4a4a4a;
+  /* Dark Gray */
+  --text-muted: #757575;
+  /* Medium Gray */
+
+  /* Accents - Earthy & Sophisticated */
+  --accent-primary: #8c7355;
+  /* Warm Brown/Bronze */
+  --accent-hover: #6d5840;
+  --accent-glow: rgba(140, 115, 85, 0.2);
+  --accent-text: #ffffff;
+
+  /* Feedback Colors (Muted) */
+  --success: #4a7c59;
+  /* Moss Green */
+  --error: #b84a4a;
+  /* Brick Red */
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 4rem;
+
+  /* Radius - Softer, less rounded */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-serif: 'Merriweather', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
