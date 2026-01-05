@@ -7,7 +7,7 @@ const HEURISTICS = [
     {
         id: 'future-prediction',
         name: "Avoid Future Prediction",
-        check: (q) => /\b(would|will)\s+you\b/i.test(q) || /\b(buy|pay|use)\b/i.test(q),
+        check: (q) => /\b(would|will)\s+you\b/i.test(q) || /\b(buy|pay)\b/i.test(q),
         advice: "Users are notoriously bad at predicting their future behavior. Instead of asking what they *would* do, ask about what they *have done* in the past. This provides more reliable data based on actual behavior rather than aspirational intent.",
         link: "https://www.nngroup.com/articles/first-rule-of-usability-dont-listen-to-users/",
         linkText: "NN/g: The First Rule of Usability",
@@ -43,7 +43,7 @@ const HEURISTICS = [
     {
         id: 'closed-ended',
         name: "Open vs. Closed",
-        check: (q) => /^(did|do|is|are|have|was|were)\b/i.test(q),
+        check: (q) => /^(did|do|does|is|isn't|are|aren't|have|has|was|were|can|could|should|will|won't)\b/i.test(q),
         advice: "This looks like a closed-ended (Yes/No) question. While useful for quant data, open-ended questions yield richer insights in qualitative interviews by encouraging storytelling.",
         link: "https://www.nngroup.com/articles/open-ended-questions/",
         linkText: "NN/g: Open-Ended vs. Closed-Ended Questions",
