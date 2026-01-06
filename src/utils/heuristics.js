@@ -5,6 +5,32 @@
 
 const HEURISTICS = [
     {
+        id: 'too-short',
+        name: "Too Short",
+        check: (q) => q.split(' ').length < 2,
+        advice: "This looks like a topic rather than a specific question. Validating a topic is great, but to get actionable insights, try asking about a specific experience.",
+        link: "https://www.nngroup.com/articles/user-interviews/",
+        linkText: "NN/g: User Interviews",
+        refine: (q) => [
+            `Tell me about your experience with ${q}.`,
+            `Walk me through how you typically handle ${q}.`,
+            `What are your main challenges regarding ${q}?`
+        ]
+    },
+    {
+        id: 'why-question',
+        name: "Avoid 'Why'",
+        check: (q) => /^why\b/i.test(q),
+        advice: "Asking 'Why' can sometimes make users feel defensive or lead them to rationalize their behavior instead of describing it. 'What' or 'How' questions often yield better behavioral data.",
+        link: "https://www.nngroup.com/articles/interviewing-users/",
+        linkText: "NN/g: Interviewing Users",
+        refine: (q) => [
+            "What was your goal when you made that decision?",
+            "Walk me through your thought process.",
+            "What factors influenced your choice?"
+        ]
+    },
+    {
         id: 'future-prediction',
         name: "Avoid Future Prediction",
         check: (q) => /\b(would|will)\s+you\b/i.test(q) || /\b(buy|pay)\b/i.test(q),
