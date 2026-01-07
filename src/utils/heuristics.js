@@ -56,8 +56,8 @@ const HEURISTICS = [
     {
         id: 'leading-question',
         name: "Avoid Leading Questions",
-        check: (q) => /\b(do|don't|did|didn't|is|isn't)\s+you\s+(like|love|hate|think)\b/i.test(q) || /\b(good|bad|easy|hard)\b/i.test(q),
-        advice: "This question might be leading the user to a specific answer by embedding a judgment (like 'good', 'easy', or 'like'). Neutral questions allow users to express their true feelings without bias.",
+        check: (q) => /\b(do|don't|did|didn't|is|isn't)\s+you\s+(like|love|hate|think)\b/i.test(q) || /\b(good|bad|easy|hard|cool|great|awesome|terrible|annoying|useful|helpful|intuitive|confusing|fast|slow)\b/i.test(q),
+        advice: "This question might be leading the user to a specific answer by embedding a judgment (like 'cool', 'easy', or 'good'). Neutral questions allow users to express their true feelings without bias.",
         link: "https://www.nngroup.com/articles/10-survey-challenges/",
         linkText: "NN/g: Avoiding Leading Questions in Surveys",
         refine: (q) => [
@@ -90,6 +90,19 @@ const HEURISTICS = [
             "Let's focus on one aspect first. Tell me about [Topic A].",
             "Regarding [Topic B], how do you feel about...",
             "Can we break that down? First, what are your thoughts on..."
+        ]
+    },
+    {
+        id: 'quant-specific',
+        name: "Fact-Seeking / Closed",
+        check: (q) => /^(how\s+(much|many|often|long|likely)|when|where|who|which)\b/i.test(q),
+        advice: "This question often leads to one-word answers, numbers, or specific facts. In qualitative research, we want stories and mental models.",
+        link: "https://www.nngroup.com/articles/qualitative-research-study-facilitation/",
+        linkText: "NN/g: Qualitative Facilitation",
+        refine: (q) => [
+            "Tell me about the context of...",
+            "Describe the last time...",
+            "Walk me through..."
         ]
     }
 ];
